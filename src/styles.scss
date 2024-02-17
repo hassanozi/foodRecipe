@@ -60,28 +60,30 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
   input{
     background-color: #f7f7f7 !important;
   }
+
+  button{
+    border: none;
+    border-radius: 8px;
+    text-align: center;
+    padding: 10px 8px;
+  
+    &.main{
+      background-color:#4aa35a !important;
+      color: #fff;
+    }
+  
+    &.second{
+      background-color: red;
+      color: #fff;
+    }
+  
+    &:hover {
+      opacity: 0.8;
+    }
+  }
 }
 
-button{
-  border: none;
-  border-radius: 8px;
-  text-align: center;
-  padding: 10px 8px;
 
-  &.main{
-    background-color:#4aa35a ;
-    color: #fff;
-  }
-
-  &.second{
-    background-color: red;
-    color: #fff;
-  }
-
-  &:hover {
-    opacity: 0.8;
-  }
-}
 
 
 
