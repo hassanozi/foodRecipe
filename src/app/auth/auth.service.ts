@@ -13,6 +13,12 @@ export class AuthService {
     return this.http.post('Users/Login',data);
   }
 
+  onVerify(data:any){
+    return this.http.put('Users/verify',data);
+  }
 
+  onRegister(data:any){
+    return this.http.post('Users/Register',data);
+  }
 
 }

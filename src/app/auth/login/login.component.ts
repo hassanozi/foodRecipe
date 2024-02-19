@@ -33,8 +33,11 @@ export class LoginComponent implements OnInit{
     this.isLoading=true;
     console.log(data.value)
     this._AuthService.onLogin(data.value).subscribe({
-      next:(resp)=>{
-        console.log(resp)
+      next:(res)=>{
+        console.log(res);
+        
+        // localStorage.setItem('token', res.token)
+
       },error:(err:any)=>{
         console.log(err)
         this.isLoading =false;

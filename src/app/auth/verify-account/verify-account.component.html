@@ -1,0 +1,20 @@
+<h1 mat-dialog-title>Hi </h1>
+<div mat-dialog-content>
+  <form [formGroup]="veryForm">
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+        <input formControlName="email" type="text" class="form-control" placeholder="Enter Your E-mail" aria-label="Username"
+            aria-describedby="basic-addon1">
+    </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+        <input formControlName="code" type="text" class="form-control" placeholder="Enter Your code" aria-label="Username"
+            aria-describedby="basic-addon1">
+    </div>
+  </form>
+
+</div>
+<div mat-dialog-actions class="justify-content-between">
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [mat-dialog-close]="veryForm.value" cdkFocusInitial>Ok</button>
+</div>
