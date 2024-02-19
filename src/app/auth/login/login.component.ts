@@ -33,12 +33,12 @@ export class LoginComponent implements OnInit{
     this.isLoading=true;
     console.log(data.value)
     this._AuthService.onLogin(data.value).subscribe({
-      next:(res)=>{
+      next:(res:any)=>{
         console.log(res);
         
-        // localStorage.setItem('token', res.token)
+        localStorage.setItem('token', res.token)
 
-      },error:(err:any)=>{
+      },error:(err)=>{
         console.log(err)
         this.isLoading =false;
         this._toaster.error('Hello world!', 'Toastr fun!');
