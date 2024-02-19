@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { DashboardComponent } from './dashboard.component';
+import { adminGuard } from 'src/app/Gaurds/admin.guard';
+import { userGuard } from 'src/app/Gaurds/user.guard';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent },
-  { path: 'user', loadChildren: () => import('../../user/user.module').then(m => m.UserModule) }, 
-  { path: 'auth', loadChildren: () => import('../../auth/auth.module').then(m => m.AuthModule) },
+  { path: 'user', canActivate:[userGuard],loadChildren: () => import('../../user/user.module').then(m => m.UserModule) }, 
+  { path: 'admin',canActivate:[adminGuard], loadChildren: () => import('../../admin/admin.module').then(m => m.AdminModule) },
 
 ];
 
