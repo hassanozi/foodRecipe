@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ILogin } from '../shared/login';
 import { jwtDecode } from 'jwt-decode';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,7 @@ export class AuthService {
   token=localStorage.getItem('token');
   role:string | any ='';
 
-  onLogin(data:ILogin){
+  onLogin(data:ILogin):Observable<any>{
     return this.http.post('Users/Login',data);
   }
 
@@ -28,6 +29,14 @@ export class AuthService {
 
   onRegister(data:any){
     return this.http.post('Users/Register',data);
+  }
+
+  forgetPassword(data:any){
+    return this.http.post('Users/Reset/Request',data);
+  }
+
+  resetPassword(data:any){
+    return this.http.post('Users/Reset',data);
   }
 
   getProfile(){

@@ -24,7 +24,7 @@ export class RegisterComponent {
     email: new FormControl(null, [Validators.required, Validators.email]),
     country: new FormControl(null, [Validators.required]),
     phoneNumber: new FormControl(null, [Validators.required]),
-    password: new FormControl(null, [Validators.required]),
+    password: new FormControl(null, [Validators.required,Validators.pattern(/^[a-zA-Z0-9_@]{6,}$/)]),
     confirmPassword: new FormControl(null, Validators.required)
   })
 

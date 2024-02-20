@@ -10,7 +10,7 @@
 
             <form  [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
                 <div class="input-group mb-3">
-                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
+                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
                     <input formControlName="email" type="text" class="form-control" placeholder="Enter Your E-mail" aria-label="Username"
                         aria-describedby="basic-addon1">
                         <div *ngIf="loginForm.get('email')?.getError('required')"></div>
@@ -36,7 +36,7 @@
                 
                 <div class="d-flex justify-content-between my-2">
                     <a routerLink="../register" class="text-second text-decoration-none">Register Now?</a>
-                    <a class="text-main text-decoration-none">Forget Password?</a>
+                    <a routerLink="../forget-password" class="text-main text-decoration-none">Forget Password?</a>
                 </div>
                 <button [disabled]="loginForm.invalid" class="btn main text-white w-100">
                     <span *ngIf="isLoading == false">Login</span>

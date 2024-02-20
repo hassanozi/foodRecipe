@@ -1,46 +1,34 @@
-import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../auth.service';
+import { Component } from '@angular/core';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-forget-password',
+  templateUrl: './forget-password.component.html',
+  styleUrls: ['./forget-password.component.scss']
 })
-export class LoginComponent implements OnInit{
-  
+export class ForgetPasswordComponent {
+
   hide:boolean =true;
   isLoading:boolean=false;
-  showpassword =false;
 
   constructor(private _AuthService:AuthService, private _toaster:ToastrService, private _Router:Router){}
 
-    loginForm = new FormGroup({
+    forgetPasswordForm = new FormGroup({
       email:new FormControl(null,[Validators.required,Validators.email]),
-      password : new FormControl(null,Validators.required)
     })
   
-  toggleShow(){
-    this.showpassword = !this.showpassword;
-  }
   
-  ngOnInit(): void {
-    
-  }
 
   onSubmit(data:FormGroup){
     this.isLoading=true;
     console.log(data.value)
-    this._AuthService.onLogin(data.value).subscribe({
+    this._AuthService.forgetPassword(data.value).subscribe({
       next:(res)=>{
         console.log(res);
-        
-        localStorage.setItem('token', res.token)
-        this._AuthService.getProfile();
-        this._Router.navigate(['/dashboard']);
-
+        this._Router.navigate(['/auth/reset-password']);
       },error:(err)=>{
         console.log(err)
         this.isLoading =false;
@@ -51,5 +39,4 @@ export class LoginComponent implements OnInit{
       }
     })
   }
-
 }

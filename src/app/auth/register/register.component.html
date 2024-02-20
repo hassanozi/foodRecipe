@@ -29,7 +29,19 @@
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
                             <input formControlName="userName" type="text" class="form-control" placeholder="Enter Your User Name" aria-label="Username"
                                 aria-describedby="basic-addon1">
-                                <div *ngIf="registerForm.get('email')?.getError('required')"></div>
+                                <!-- <div *ngIf="registerForm.get('userName')?.getError('required')"></div> -->
+                        </div>
+                        <div *ngIf="registerForm.get('userName')?.errors && registerForm.get('userName')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
+                            <p class="mb-0" *ngIf="registerForm.get('userName')?.getError('required')">User Name is required</p>
+                            <!-- <p class="mb-0" *ngIf="registerForm.get('userName')?.getError('email')">Invalid Format</p> -->
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
+                            <input formControlName="email" type="text" class="form-control" placeholder="Enter Your E-mail" aria-label="Username"
+                                aria-describedby="basic-addon1">
+                                <!-- <div *ngIf="registerForm.get('email')?.getError('required')"></div> -->
                         </div>
                         <div *ngIf="registerForm.get('email')?.errors && registerForm.get('email')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
                             <p class="mb-0" *ngIf="registerForm.get('email')?.getError('required')">Email is required</p>
@@ -39,17 +51,13 @@
                     <div class="col-6">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
-                            <input formControlName="email" type="text" class="form-control" placeholder="Enter Your E-mail" aria-label="Username"
-                                aria-describedby="basic-addon1">
-                                <div *ngIf="registerForm.get('email')?.getError('required')"></div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="input-group mb-3">
-                            <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
                             <input formControlName="country" type="text" class="form-control" placeholder="country" aria-label="Username"
                                 aria-describedby="basic-addon1">
-                                <div *ngIf="registerForm.get('email')?.getError('required')"></div>
+                                <!-- <div *ngIf="registerForm.get('email')?.getError('required')"></div> -->
+                        </div>
+                        <div *ngIf="registerForm.get('country')?.errors && registerForm.get('country')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
+                            <p class="mb-0" *ngIf="registerForm.get('country')?.getError('required')">country is required</p>
+                            <!-- <p class="mb-0" *ngIf="registerForm.get('email')?.getError('email')">Invalid Format</p> -->
                         </div>
                     </div>
                     <div class="col-6">
@@ -57,7 +65,10 @@
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
                             <input formControlName="phoneNumber" type="text" class="form-control" placeholder="phoneNumber" aria-label="Username"
                                 aria-describedby="basic-addon1">
-                                <div *ngIf="registerForm.get('email')?.getError('required')"></div>
+                                <!-- <div *ngIf="registerForm.get('email')?.getError('required')"></div> -->
+                        </div>
+                        <div *ngIf="registerForm.get('phoneNumber')?.errors && registerForm.get('phoneNumber')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
+                            <p class="mb-0" *ngIf="registerForm.get('phoneNumber')?.getError('required')">phone Number is required</p>
                         </div>
                     </div>
                     <div class="col-6">
@@ -81,9 +92,9 @@
                                 <i (click)="toggleShow()" class="fa-solid fa-eye eye" *ngIf="!showpassword"></i>
                                 <i (click)="toggleShow()" class="fa-solid fa-eye-slash eye" *ngIf="showpassword"></i>
                         </div>
-                        <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
-                            <p class="mb-0" *ngIf="registerForm.get('password')?.getError('required')">password is required</p>
-                            <p class="mb-0" *ngIf="registerForm.get('password')?.getError('pattern')">Must be 6 char</p>
+                        <div *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
+                            <p class="mb-0" *ngIf="registerForm.get('confirmPassword')?.getError('required')">confirm Password is required</p>
+                            <p class="mb-0" *ngIf="registerForm.get('confirmPassword')?.getError('pattern')">Must be 6 char</p>
                         </div>
                         
                     </div>
