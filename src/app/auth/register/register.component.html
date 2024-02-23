@@ -76,8 +76,8 @@
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
                             <input formControlName="password" [type]="showpassword?'text':'password'" class="form-control" placeholder="Enter Your Password" aria-label="Username"
                                 aria-describedby="basic-addon1">
-                                <i (click)="toggleShow()" class="fa-solid fa-eye eye" *ngIf="!showpassword"></i>
-                                <i (click)="toggleShow()" class="fa-solid fa-eye-slash eye" *ngIf="showpassword"></i>
+                                <i (click)="toggleShow1()" class="fa-solid fa-eye eye" *ngIf="!showpassword"></i>
+                                <i (click)="toggleShow1()" class="fa-solid fa-eye-slash eye" *ngIf="showpassword"></i>
                         </div>
                         <div *ngIf="registerForm.get('password')?.errors && registerForm.get('password')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
                             <p class="mb-0" *ngIf="registerForm.get('password')?.getError('required')">password is required</p>
@@ -87,10 +87,10 @@
                     <div class="col-6">
                         <div class="input-group mb-3 field">
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-lock"></i></span>
-                            <input formControlName="confirmPassword" [type]="showpassword?'text':'password'" class="form-control" placeholder="Confirm Password" aria-label="Username"
+                            <input formControlName="confirmPassword" [type]="showConfirmPassword?'text':'password'" class="form-control" placeholder="Confirm Password" aria-label="Username"
                                 aria-describedby="basic-addon1">
-                                <i (click)="toggleShow()" class="fa-solid fa-eye eye" *ngIf="!showpassword"></i>
-                                <i (click)="toggleShow()" class="fa-solid fa-eye-slash eye" *ngIf="showpassword"></i>
+                                <i (click)="toggleShow2()" class="fa-solid fa-eye eye" *ngIf="!showConfirmPassword"></i>
+                                <i (click)="toggleShow2()" class="fa-solid fa-eye-slash eye" *ngIf="showConfirmPassword"></i>
                         </div>
                         <div *ngIf="registerForm.get('confirmPassword')?.errors && registerForm.get('confirmPassword')?.touched" class="alert alert-danger p-1 small w-50 mx-auto">
                             <p class="mb-0" *ngIf="registerForm.get('confirmPassword')?.getError('required')">confirm Password is required</p>

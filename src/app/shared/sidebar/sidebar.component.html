@@ -1,0 +1,21 @@
+<section class="bg-dark2 vh-100">
+    <div class="text-center py-3">
+        <img src="../../../assets/images/logo-without-text.svg" alt="" class="w-75">
+    </div>
+
+    <div class="mt-5">
+        <ul>
+            <ng-container *ngFor="let item of Menue">
+                <li *ngIf="item.isActive">
+                    <a [routerLink]="item.link" routerLinkActive="bg-main-transparent">
+                        <span><i [class]="item.icon"></i></span>
+                        <span class="text-capitalize">{{item.text}}</span>
+                    </a>
+                </li>
+            </ng-container>
+
+        </ul>
+    </div>
+
+
+</section>

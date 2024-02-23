@@ -1,0 +1,27 @@
+section{
+    border-top-right-radius: 58px;
+    ul{
+        padding: 0px;
+        li{
+            list-style: none;
+            padding: 10px; 
+            // background-color: #8cc344;
+            a{
+                padding: 10px;
+                color: #ffffff5c;
+                text-decoration: none;
+                display: block;
+                span{
+                    margin: 0px 5px;
+                }
+                i{
+                    color: #fff !important;
+                }
+            }
+        }
+    }
+    .bg-main-transparent{
+        background-color: rgba(0, 146, 77,0.1);
+        color: #fff !important;
+    }
+}

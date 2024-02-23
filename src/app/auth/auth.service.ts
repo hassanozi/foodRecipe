@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { ILogin } from '../shared/login';
 import { jwtDecode } from 'jwt-decode';
 import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private http:HttpClient) { 
+  constructor(private http:HttpClient,private _Router:Router) { 
     if(this.token !== null){
          this.getProfile();
 
@@ -29,6 +30,13 @@ export class AuthService {
 
   onRegister(data:any){
     return this.http.post('Users/Register',data);
+  }
+
+  logout(){
+    localStorage.removeItem('userToken');
+    localStorage.removeItem('userRole');
+    localStorage.removeItem('userName');
+    this._Router.navigate(['/auth/login'])
   }
 
   forgetPassword(data:any){

@@ -1,0 +1,20 @@
+<section>
+    <div class="row justify-content-end">
+        <div class="col-4 px-4">
+            <div class="d-flex align-items-center justify-content-end">
+                <img src="../../../assets/images/profile.svg" alt="" class="mx-2">
+                <h6 class="mb-0">{{userName}}</h6>
+                <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                    <mat-icon>expand_more</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                    <button (click)="myLogout()" mat-menu-item>
+                      <mat-icon>logout</mat-icon>
+                      <span>LogOut</span>
+                    </button>
+                  </mat-menu>
+                  
+            </div>
+        </div>
+    </div>
+</section>

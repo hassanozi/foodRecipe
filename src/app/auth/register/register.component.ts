@@ -15,6 +15,7 @@ export class RegisterComponent {
   hide: boolean = true;
   isLoading: boolean = false;
   showpassword = false;
+  showConfirmPassword = false;
   imgSrc: any;
 
   constructor(private _AuthService: AuthService, private _toaster: ToastrService,public dialog: MatDialog, private _Router:Router) { }
@@ -28,10 +29,13 @@ export class RegisterComponent {
     confirmPassword: new FormControl(null, Validators.required)
   })
 
-  toggleShow() {
+  toggleShow1() {
     this.showpassword = !this.showpassword;
   }
 
+  toggleShow2() {
+    this.showConfirmPassword = !this.showConfirmPassword;
+  }
   ngOnInit(): void {
 
   }
