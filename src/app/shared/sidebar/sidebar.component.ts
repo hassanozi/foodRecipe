@@ -27,9 +27,9 @@ export class SidebarComponent {
 
      Menue : Menu[] = [
       {text:'home',link:'/dashboard/home',icon:'fa-solid fa-house',isActive:this.isAdmin()|| this.isUser()},
-      {text:'users',link:'home1',icon:'fa-solid fa-house',isActive:this.isAdmin()},
-      {text:'Recipes',link:'home2',icon:'fa-solid fa-house',isActive:this.isAdmin()},
-      {text:'Category',link:'home3',icon:'fa-solid fa-house',isActive:this.isAdmin()},
+      {text:'users',link:'/dashboard/admin/users',icon:'fa-solid fa-user',isActive:this.isAdmin()},
+      {text:'Recipes',link:'/dashboard/admin/recipes',icon:'fa-solid fa-utensils',isActive:this.isAdmin()},
+      {text:'Category',link:'/dashboard/admin/category',icon:'fa-solid fa-list',isActive:this.isAdmin()},
       {text:'User Recipes',link:'home4',icon:'fa-solid fa-house',isActive:this.isUser()},
       {text:'Favorites',link:'home5',icon:'fa-solid fa-house',isActive:this.isUser()},
     ];

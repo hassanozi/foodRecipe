@@ -39,15 +39,15 @@ export class LoginComponent implements OnInit{
         
         localStorage.setItem('token', res.token)
         this._AuthService.getProfile();
-        this._Router.navigate(['/dashboard']);
+        this._Router.navigate(['/dashboard/home']);
 
       },error:(err)=>{
         console.log(err)
         this.isLoading =false;
-        this._toaster.error('Hello world!', 'Toastr fun!');
+        this._toaster.error(err);
       }, complete:()=>{
         this.isLoading =false;
-        this._toaster.success('Hello world!', 'Toastr fun!');
+        this._toaster.success('Successfuly Done');
       }
     })
   }

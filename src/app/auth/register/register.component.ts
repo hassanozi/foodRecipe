@@ -59,10 +59,10 @@ export class RegisterComponent {
       }, error: (err: any) => {
         console.log(err)
         this.isLoading = false;
-        this._toaster.error('Hello world!', 'Toastr fun!');
+        this._toaster.error(err);
       }, complete: () => {
         this.isLoading = false;
-        this._toaster.success('Hello world!', 'Toastr fun!');
+        this._toaster.success('Successfully Done');
         this.openDialog()
       }
     })
@@ -72,9 +72,11 @@ export class RegisterComponent {
 
   onSelect(event: any) {
     console.log(event);
+    const selectedFile = event[0];
     this.imgSrc = event.addedFiles[0];
     console.log(this.imgSrc);
-    this.files.push(...event.addedFiles);
+    this.files.push(selectedFile);
+    // this.files.push(...event.addedFiles);
   }
 
   onRemove(event: any) {
@@ -101,7 +103,7 @@ export class RegisterComponent {
         console.log(res);
       }, error: (err: any) => {
         console.log(err)
-        this._toaster.error('Hello world!', 'Toastr fun!');
+        this._toaster.error(err);
       }, complete: () => {
         this._toaster.success('Account Activated Successfully','Success');
         this._Router.navigate(['../login'])
