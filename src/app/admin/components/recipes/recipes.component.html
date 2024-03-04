@@ -28,7 +28,8 @@
         <div class="col-3">
             <mat-form-field>
                 <mat-label>Choose Tag</mat-label>
-                <mat-select (selectionChange)="getAllTages()">
+                <mat-select [(ngModel)]="tagId" (selectionChange)="getRecipes()">
+                    <mat-option>All</mat-option>
                   <mat-option *ngFor="let item of tags" [value]="item.id">{{item.name}}</mat-option>
                 </mat-select>
               </mat-form-field>
@@ -36,13 +37,14 @@
         <div class="col-3">
             <mat-form-field>
                 <mat-label>Choose Category</mat-label>
-                <mat-select>
+                <mat-select  [(ngModel)]="categoryId" (selectionChange)="getRecipes()">
+                    <mat-option>All</mat-option>
                   <mat-option *ngFor="let item of categories" value="option1">{{item.name}}</mat-option>
                 </mat-select>
               </mat-form-field>
         </div>
         <div class="text-end mx-5 col-2">
-            <button  class="bg-main text-white">Add new Recipe</button>
+            <button [routerLink]="'add'" class="bg-main text-white">Add new Recipe</button>
         </div>
     </div>
 
@@ -78,15 +80,11 @@
                             <mat-icon color="primary">more_horiz</mat-icon>
                           </button>
                           <mat-menu #menu="matMenu">
-                            <!-- <button mat-menu-item>
-                              <mat-icon color="primary">visibility</mat-icon>
-                              <span>View</span>
-                            </button> -->
-                            <button mat-menu-item>
+                            <button mat-menu-item [routerLink]="['/dashboard/admin/recipes/edit',item.id]">
                               <mat-icon  color="primary">edit_square</mat-icon>
                               <span>edit</span>
                             </button>
-                            <button mat-menu-item>
+                            <button mat-menu-item (click)="openDeleteRecipeDialog(item)">
                               <mat-icon  color="primary">delete</mat-icon>
                               <span>Delete</span>
                             </button>

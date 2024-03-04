@@ -6,7 +6,7 @@ import { RecipesComponent } from './components/recipes/recipes.component';
 
 const routes: Routes = [
   { path: '', component: AdminComponent,children:[
-    {path:'recipes', component:RecipesComponent},
+    { path: 'recipes', loadChildren: () => import('../admin/components/recipes/recipes.module').then(m => m.RecipeModule) },
     {path:'category', component:CategoriesComponent},
 
   ] }

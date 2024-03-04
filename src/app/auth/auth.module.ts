@@ -24,7 +24,6 @@ import { ResetPasswordComponent } from './reset-password/reset-password.componen
     CommonModule,
     AuthRoutingModule,
     SharedModule,
-    NgxDropzoneModule
   ]
 })
 export class AuthModule { }

@@ -18,7 +18,9 @@ export class RecipesComponent {
 
   tableData: any[] = [];
   tags:any[]=[];
-  categories:any[]=[];
+  tagId:number=0;
+  categories:ICategory[]=[];
+  categoryId : number = 0;
   tableResponse: any;
   searchkey: string = '';
   imagePath : string = 'https://upskilling-egypt.com/';
@@ -45,7 +47,9 @@ export class RecipesComponent {
     let paramsApi = {
       pageSize : this.pageSize,
       pageNumber:this.pageNumber,
-      name:this.searchkey
+      name:this.searchkey,
+      tagId : this.tagId > 0 ? this.tagId : null,
+      categoryId : this.categoryId > 0 ? this.categoryId : null
     }
 
     this._RecipesService.getAllRecipes(paramsApi).subscribe({
@@ -94,19 +98,19 @@ export class RecipesComponent {
   //   });
   // }
 
-  // openDeleteCategoryDialog(CategoryData: any) {
-  //   const dialogRef = this.dialog.open(DeleteComponent, {
-  //     // data: {name: this.name, animal: this.animal},
-  //     data: CategoryData
-  //   });
+  openDeleteRecipeDialog(recipeData: any) {
+    const dialogRef = this.dialog.open(DeleteComponent, {
+      // data: {name: this.name, animal: this.animal},
+      data: recipeData
+    });
 
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(result);
-  //     if (result) {
-  //       this.deleteCategory(result);
-  //     }
-  //   });
-  // }
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(result);
+      if (result) {
+        this.onDeleteRecipe(result);
+      }
+    });
+  }
 
   // addCategory(categoryName: string) {
   //   this._RecipesService.onAddCategory(categoryName).subscribe({
@@ -162,6 +166,19 @@ export class RecipesComponent {
       next:(res)=>{
         console.log(res);
         this.categories = res.data;
+      }
+    })
+  }
+
+  onDeleteRecipe(recipeId:any){
+    this._RecipesService.onDeleteRecipe(recipeId).subscribe({
+      next:(res)=>{
+        console.log(res);
+      },error:()=>{
+
+      },complete:()=>{
+        this._ToastrService.info('Deleted Successfuly')
+        this.getRecipes();
       }
     })
   }
