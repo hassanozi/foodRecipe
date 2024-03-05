@@ -69,35 +69,7 @@ export class RecipesComponent {
     this.getRecipes();
   }
 
-  // openAddCategoryDialog() {
-  //   const dialogRef = this.dialog.open(AddEditCategoryComponent, {
-  //     // data: {name: this.name, animal: this.animal},
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(result);
-  //     if (result) {
-  //       this.addCategory(result);
-  //     }
-  //   });
-  // }
-
-  // openEditCategoryDialog(CategoryData: any) {
-  //   console.log(CategoryData);
-
-  //   const dialogRef = this.dialog.open(AddEditCategoryComponent, {
-  //     // data: {name: this.name, animal: this.animal},
-  //     data: CategoryData
-  //   });
-
-  //   dialogRef.afterClosed().subscribe(result => {
-  //     console.log(result);
-  //     if (result) {
-  //       this.editCategory(result);
-  //     }
-  //   });
-  // }
-
+  
   openDeleteRecipeDialog(recipeData: any) {
     const dialogRef = this.dialog.open(DeleteComponent, {
       // data: {name: this.name, animal: this.animal},
@@ -112,45 +84,7 @@ export class RecipesComponent {
     });
   }
 
-  // addCategory(categoryName: string) {
-  //   this._RecipesService.onAddCategory(categoryName).subscribe({
-  //     next: (res) => {
-  //       console.log(res);
-  //     }, error: () => {
-
-  //     }, complete: () => {
-  //       this._ToastrService.success('Add Successfuly')
-  //       this.getCategories();
-  //     }
-  //   })
-  // }
-
-  // editCategory(categoryItem: any) {
-  //   this._RecipesService.onEditCategory(categoryItem).subscribe({
-  //     next: (res) => {
-  //       console.log(res);
-  //     }, error: () => {
-
-  //     }, complete: () => {
-  //       this._ToastrService.success('edit Successfuly')
-  //       this.getCategories();
-  //     }
-  //   })
-  // }
-
-  // deleteCategory(categoryId: any) {
-  //   this._RecipesService.onDeleteCategory(categoryId).subscribe({
-  //     next: (res) => {
-  //       console.log(res);
-  //     }, error: () => {
-
-  //     }, complete: () => {
-  //       this._ToastrService.info('Deleted Successfuly')
-  //       this.getCategories();
-  //     }
-  //   })
-  // }
-
+  
 
   getAllTages(){
     this._HelperService.getTags().subscribe({

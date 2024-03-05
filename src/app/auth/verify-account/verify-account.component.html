@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Hi </h1>
+<h1 mat-dialog-title>verify </h1>
 <div mat-dialog-content>
   <form [formGroup]="veryForm">
     <div class="input-group mb-3">
@@ -16,5 +16,5 @@
 </div>
 <div mat-dialog-actions class="justify-content-between">
   <button mat-button (click)="onNoClick()">Close</button>
-  <button mat-button [mat-dialog-close]="veryForm.value" cdkFocusInitial>Ok</button>
+  <button color="primary" mat-button [mat-dialog-close]="veryForm.value" cdkFocusInitial>Ok</button>
 </div>

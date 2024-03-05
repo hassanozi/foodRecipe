@@ -7,11 +7,22 @@
         <div class="px-5">
             <h2>Register</h2>
             <p>Welcome Back! Please enter your details</p>
-
+            <div class="mx-auto text-center">
+                <div class="col-12 p-3">
+                    <ngx-dropzone   (change)="onSelect($event)" [multiple]="false" class="rounded-circle w-25">
+                        <ngx-dropzone-label>Drop image</ngx-dropzone-label>
+                   
+                        <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+                            <ngx-dropzone-label></ngx-dropzone-label>
+                          </ngx-dropzone-image-preview>
+                    </ngx-dropzone>
+                </div>
+            </div>
             <form action="" [formGroup]="registerForm" (ngSubmit)="onSubmit(registerForm)">
 
                 <div class="row">
 
+                    
                     <div class="col-6">
                         <div class="input-group mb-3">
                             <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-mobile-screen"></i></span>
@@ -86,15 +97,7 @@
                         </div>
                         
                     </div>
-                    <div class="col-12">
-                        <ngx-dropzone   (change)="onSelect($event)" [multiple]="false">
-                            <ngx-dropzone-label>Drop image</ngx-dropzone-label>
-                       
-                            <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
-                                <ngx-dropzone-label></ngx-dropzone-label>
-                              </ngx-dropzone-image-preview>
-                        </ngx-dropzone>
-                    </div>
+                    
                 </div>
 
                 

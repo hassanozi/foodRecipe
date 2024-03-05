@@ -24,7 +24,7 @@ export class AddEditRecipeComponent implements OnInit {
   ngOnInit(): void {
     this.getAllTages();
     this.getAllCategories();
-    if (this.recipeId > 0) {
+    if (this.recipeId) {
       this.getRecipeById(this.recipeId);
     }
   }
@@ -135,13 +135,14 @@ export class AddEditRecipeComponent implements OnInit {
 
         let arr: any[] = [...this.recipeData.category];
         this.ids = arr.map(x => x.id);
+        this.imgSrc='https:upskilling-egypt.com/'+ this.recipeData.imagePath,
 
         this.recipeForm.patchValue({
           name: this.recipeData.name,
           description: this.recipeData.description,
           price: this.recipeData.price,
           tagId: this.recipeData.tag.id,
-          recipeImage: this.recipeData.recipeImage,
+          recipeImage: this.imgSrc, 
           categoriesIds: this.recipeData.category.map((x:any)=>x.id),
         })
       }
