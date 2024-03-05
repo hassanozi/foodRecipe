@@ -1,10 +1,54 @@
-<section class="container  py-3">
-    <a class="d-block text-end"><i class="fa-regular fa-2x fa-circle-xmark text-danger"></i></a>
-    <div class="text-center">
-        <img src="../../../assets/images/deletedata.svg" alt="" class="w-25">
-        
-    </div> 
-    
-
+<section>
+    <form [formGroup]="userForm" >
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-9 mx-auto">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input formControlName="id" type="text" class="form-control" 
+                            aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input formControlName="userName" type="text" class="form-control"
+                            aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input formControlName="email" type="text" class="form-control" 
+                            aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input formControlName="country" type="text" class="form-control" 
+                            aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input formControlName="phoneNumber" type="text" class="form-control"
+                             aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input formControlName="imagePath" type="text" class="form-control"
+                             aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"></span>
+                        <input formControlName="group" type="text" class="form-control" 
+                            aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div>
+                        <hr>
+                        <div class="d-flex justify-content-end">
+                            <button routerLink="/dashboard/admin/users" class="outline-main mx-2">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
 </section>
+
+
 

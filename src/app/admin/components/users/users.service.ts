@@ -12,4 +12,11 @@ export class UsersService {
   getAllUsers(x:any):Observable<any>{
     return this._HttpClient.get('Users',{params:x});
   }
+
+  getUserById(id:number):Observable<any>{
+    return this._HttpClient.get(`Users/${id}`);
+  }
+
+
+
 }
