@@ -23,4 +23,6 @@ export class RecipeDetailsComponent {
   onNoClick(): void {
     this.dialogRef.close();
   }
+
+  id? : number;
 }

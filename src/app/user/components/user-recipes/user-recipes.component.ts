@@ -125,7 +125,9 @@ export class UserRecipesComponent {
     dialogRef.afterClosed().subscribe(result =>{
       console.log('The Dialog was closed');
       console.log(result);
-      this.addToFav(result);
+      if (result) {
+        this.addToFav(result);
+      }
     })
 
 
