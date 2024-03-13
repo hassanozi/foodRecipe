@@ -8,10 +8,6 @@
                     <mat-icon>expand_more</mat-icon>
                   </button>
                   <mat-menu #menu="matMenu">
-                    <button (click)="myLogout()" mat-menu-item>
-                      <mat-icon>logout</mat-icon>
-                      <span>LogOut</span>
-                    </button>
                     <button (click)="getCurrentUser()" mat-menu-item>
                       <mat-icon>badge</mat-icon>
                       <span>Profile</span>
@@ -20,6 +16,11 @@
                       <mat-icon>lock_reset</mat-icon>
                       <span>Reset Password</span>
                     </button>
+                    <button (click)="myLogout()" mat-menu-item>
+                      <mat-icon>logout</mat-icon>
+                      <span>LogOut</span>
+                    </button>
+                    
                   </mat-menu>
                   
             </div>
