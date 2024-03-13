@@ -1,0 +1,63 @@
+<section>
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm)">
+        <div class="container">
+            <div class="row py-5">
+                <div class="col-9 mx-auto">
+                    <div class="mx-auto text-center">
+                        <div class="col-12 p-3">
+                            <ngx-dropzone   (change)="onSelect($event)" [multiple]="false" class="rounded-circle w-25">
+                                <ngx-dropzone-label>Drop image</ngx-dropzone-label>
+                           
+                                <ngx-dropzone-image-preview ngProjectAs="ngx-dropzone-preview" *ngFor="let f of files" [file]="f">
+                                    <ngx-dropzone-label></ngx-dropzone-label>
+                                  </ngx-dropzone-image-preview>
+                            </ngx-dropzone>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                        <input formControlName="userName" type="text" class="form-control" placeholder="userName"
+                            aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                        <input formControlName="country" type="text" class="form-control" placeholder="country"
+                            aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                        <input formControlName="email" type="text" class="form-control" placeholder="email"
+                            aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                        <input formControlName="phoneNumber" type="number" class="form-control"
+                            placeholder="phoneNumber" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                        <input formControlName="creationDate" type="text" class="form-control"
+                            placeholder="creationDate" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                        <input formControlName="group" type="text" class="form-control"
+                            placeholder="group" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                        <input formControlName="confirmPassword" type="text" class="form-control"
+                            placeholder="confirmPassword" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <div>
+                        <hr>
+                        <div class="d-flex justify-content-end">
+                            <button routerLink="/dashboard/user/recipes" class="outline-main mx-2">Cancel</button>
+                            <button class="main px-5">Save</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</section>

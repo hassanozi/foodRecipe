@@ -1,0 +1,15 @@
+<section class="container  py-3">
+    <a (click)="onNoClick()" class="d-block text-end"><i class="fa-regular fa-2x fa-circle-xmark text-danger"></i></a>
+    <div class="text-center">
+        <img *ngIf="!data.imagePath" src="../../../../../assets/images/recipe-title.png" alt="" class="w-25">
+        <img *ngIf="data.imagePath" [src]="imagePath+data.imagePath" alt="" class="w-25">
+        <h3>{{data.name?data.name:'Recipe'}}</h3>
+        <p>{{data.description?data.description:'No Description'}}</p>
+
+    </div> 
+    <div class="text-end">
+       <button class="btn outline-main" [mat-dialog-close]="data.id">Add to favorites</button>
+    </div>  
+
+</section>
+

@@ -18,6 +18,7 @@ export class UsersComponent {
   pageSizeOptions = [5, 10, 25];
   pageEvent?: PageEvent;
   imagePath : string = 'https://upskilling-egypt.com/';
+  searchkey:string='';
 
   constructor(private _UsersService: UsersService, private _ToastrService: ToastrService) { }
 
@@ -50,4 +51,14 @@ export class UsersComponent {
     this.getUsers();
   }
   
+
+  // getUser(){
+  //   this._UsersService.getUserById(this.searchkey).subscribe({
+  //     next:(res)=>{
+  //       console.log(res);
+  //     }
+  //   })
+  // }
+
+
 }

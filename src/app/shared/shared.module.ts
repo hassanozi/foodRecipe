@@ -13,6 +13,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import { DeleteComponent } from './delete/delete.component';
 import {MatSelectModule} from '@angular/material/select';
 import { NgxDropzoneModule } from 'ngx-dropzone';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { NgxDropzoneModule } from 'ngx-dropzone';
 
   ],
   exports:[CommonModule,ReactiveFormsModule,HttpClientModule,MatDialogModule,SidebarComponent,NavbarComponent,MatIconModule,
-    MatMenuModule,MatButtonModule,RouterModule,MatPaginatorModule,FormsModule,DeleteComponent,MatSelectModule,NgxDropzoneModule
+    MatMenuModule,MatButtonModule,RouterModule,MatPaginatorModule,FormsModule,DeleteComponent,
+    MatSelectModule,NgxDropzoneModule
   ]
 })
 export class SharedModule { }

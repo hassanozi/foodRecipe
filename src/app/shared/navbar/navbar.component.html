@@ -12,6 +12,14 @@
                       <mat-icon>logout</mat-icon>
                       <span>LogOut</span>
                     </button>
+                    <button (click)="getCurrentUser()" mat-menu-item>
+                      <mat-icon>badge</mat-icon>
+                      <span>Profile</span>
+                    </button>
+                    <button (click)="openChangePasswordDialog()" mat-menu-item>
+                      <mat-icon>lock_reset</mat-icon>
+                      <span>Reset Password</span>
+                    </button>
                   </mat-menu>
                   
             </div>

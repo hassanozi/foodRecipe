@@ -2,20 +2,20 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PageEvent } from '@angular/material/paginator';
 import { ToastrService } from 'ngx-toastr';
+import { CategoryService } from 'src/app/admin/services/category.service';
+import { HelperService } from 'src/app/admin/services/helper.service';
+import { RecipesService } from 'src/app/admin/services/recipes.service';
 import { ICategory } from 'src/app/models/category';
 import { DeleteComponent } from 'src/app/shared/delete/delete.component';
-import { CategoryService } from '../../services/category.service';
-import { AddEditCategoryComponent } from '../add-edit-category/add-edit-category.component';
-import { RecipesService } from '../../services/recipes.service';
-import { HelperService } from '../../services/helper.service';
+import { RecipeDetailsComponent } from './recipe-details/recipe-details.component';
+import { UserService } from '../../services/user.service';
 
 @Component({
-  selector: 'app-recipes',
-  templateUrl: './recipes.component.html',
-  styleUrls: ['./recipes.component.scss']
+  selector: 'app-user-recipes',
+  templateUrl: './user-recipes.component.html',
+  styleUrls: ['./user-recipes.component.scss']
 })
-export class RecipesComponent {
-
+export class UserRecipesComponent {
   tableData: any[] = [];
   tags:any[]=[];
   tagId:number=0;
@@ -24,8 +24,7 @@ export class RecipesComponent {
   tableResponse: any;
   searchkey: string = '';
   imagePath : string = 'https://upskilling-egypt.com/';
-  dummyImage :string = '../../../../assets/images/Recipes-Title.png';
-  
+
   length = 50;
   pageSize = 5;
   pageNumber = 1;
@@ -33,7 +32,7 @@ export class RecipesComponent {
   pageEvent?: PageEvent;
 
 
-  constructor(private _RecipesService: RecipesService, private dialog: MatDialog,
+  constructor(private _UserService:UserService, private _RecipesService: RecipesService, private dialog: MatDialog,
     private _CategoryService:CategoryService, private _ToastrService: ToastrService,private _HelperService:HelperService) { }
 
 
@@ -114,6 +113,34 @@ export class RecipesComponent {
       },complete:()=>{
         this._ToastrService.info('Deleted Successfuly')
         this.getRecipes();
+      }
+    })
+  }
+
+  openRecipeDetails(item:any){
+    const dialogRef = this.dialog.open(RecipeDetailsComponent,{
+      data:item
+    });
+
+    dialogRef.afterClosed().subscribe(result =>{
+      console.log('The Dialog was closed');
+      console.log(result);
+      this.addToFav(result);
+    })
+
+
+  }
+
+  addToFav(id:number){
+    this._UserService.onAddToFav(id).subscribe({
+      next:(res)=>{
+        console.log(res);
+        
+      },error:(err:any)=>{
+        console.log(err);
+        
+      },complete:()=>{
+        this._ToastrService.success('Added To Favorites Successfully');
       }
     })
   }

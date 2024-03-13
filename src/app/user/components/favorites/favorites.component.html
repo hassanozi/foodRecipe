@@ -1,0 +1,19 @@
+<section>
+    <div class="container">
+        <div class="row py-5">
+            <div class="col-md-4" *ngFor="let item of tableRecipe" >
+                <div class="item bg-white shadow position-relative">
+                    <img *ngIf="!item.recipe.imagePath" src="../../../../../assets/images/recipe-title.png" alt="" class="w-25">
+        <img *ngIf="item.recipe.imagePath" [src]="imagePath+item.recipe.imagePath" alt="" class="w-25">
+                    <div class="delete-icon">
+                        <a (click)="removeItem(item.id)"><i class="fa-solid fa-trash-can text-danger"></i></a>
+                    </div>
+                    <div class="p-2">
+                        <h4>{{item.recipe.name}}</h4>
+                        <p>{{item.recipe.description}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

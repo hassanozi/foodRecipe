@@ -1,0 +1,23 @@
+.item{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.item img{
+    width: 100%;
+    border-radius: 15px 15px 35px 35px;
+}
+
+.delete-icon{
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background-color: #fff;
+    border: 1px solid #1F263E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top:10px;
+    right: 10px;
+}

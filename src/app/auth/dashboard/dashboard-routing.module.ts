@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
   { path: '', component: DashboardComponent ,children:[
+      { path: '', redirectTo:'home',pathMatch:'full' },
       { path: 'home', component: HomeComponent },
       { path: 'user', canActivate:[userGuard],loadChildren: () => import('../../user/user.module').then(m => m.UserModule) }, 
       { path: 'admin',canActivate:[adminGuard], loadChildren: () => import('../../admin/admin.module').then(m => m.AdminModule) },

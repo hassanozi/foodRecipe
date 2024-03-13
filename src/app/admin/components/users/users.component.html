@@ -17,7 +17,12 @@
             <p>You can check all details</p>
         </div>
     </div>
+    <div class="input-group mb-3">
+        <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input [(ngModel)]="searchkey" type="text" class="form-control"
+            placeholder="Search By id" aria-label="Username" aria-describedby="basic-addon1">
 
+    </div>
 
     <div *ngIf="tableData.length > 0">
         <table class="table table-striped text-center">

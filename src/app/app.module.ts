@@ -8,6 +8,8 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { GlobalInterceptor } from './interceptors/global.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { CommonModule } from '@angular/common';
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
 
 @NgModule({
@@ -19,8 +21,8 @@ import { CommonModule } from '@angular/common';
     BrowserAnimationsModule,
     CommonModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     HttpClientModule,
+    NgxSpinnerModule,
     ToastrModule.forRoot({
       closeButton:true,
       progressBar:true
@@ -30,6 +32,10 @@ import { CommonModule } from '@angular/common';
     {
       provide:HTTP_INTERCEPTORS,
       useClass:GlobalInterceptor,
+      multi:true
+    },{
+      provide:HTTP_INTERCEPTORS,
+      useClass:LoadingInterceptor,
       multi:true
     }
   ],
